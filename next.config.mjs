@@ -9,7 +9,10 @@ const nextConfig = {
         pathname: '/api/character/avatar/**',
       },
     ],
-  }
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

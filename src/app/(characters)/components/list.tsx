@@ -46,7 +46,7 @@ export default function List() {
     if (!isLoading && data?.info?.pages !== numberOfPages) {
       setNumberOfPages(data?.info?.pages || 42);
     }
-  }, [data, isLoading, numberOfPages]);
+  }, [data, isLoading, numberOfPages, setNumberOfPages]);
 
   const sortedData =
     sortBy && data ? sortCharacters(data.results, sortBy) : data?.results;

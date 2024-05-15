@@ -11,14 +11,21 @@ export function formatDate(date: string) {
   return moment(date).format('MM-DD-YYYY');
 }
 
-export const createQueryString = (name: string, value: string, searchParams: URLSearchParams) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set(name, value);
+export const createQueryString = (
+  name: string,
+  value: string,
+  searchParams: URLSearchParams,
+) => {
+  const params = new URLSearchParams(searchParams.toString());
+  params.set(name, value);
 
-    return params.toString();
-  }
+  return params.toString();
+};
 
-export const sortCharacters = (characters: RickAndMortyCharacter[], sortBy: string) =>
+export const sortCharacters = (
+  characters: RickAndMortyCharacter[],
+  sortBy: string,
+) =>
   characters.sort((a, b) => {
     if (sortBy === 'name') {
       return a.name.localeCompare(b.name);
