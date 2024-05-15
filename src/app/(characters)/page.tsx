@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import axios from 'axios';
 import {
   HydrationBoundary,
@@ -25,15 +26,17 @@ export default async function CharactersPage() {
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
-      <ScrollToTop />
-      <main className="container mt-6">
-        <Header />
-        <div className="mb-6 mt-[115px] flex flex-col gap-4 sm:flex-row">
-          <Filter />
-          <List />
-        </div>
-        <Pagination />
-      </main>
+      <Suspense>
+        <ScrollToTop />
+        <main className="container mt-6">
+          <Header />
+          <div className="mb-6 mt-[115px] flex flex-col gap-4 sm:flex-row">
+            <Filter />
+            <List />
+          </div>
+          <Pagination />
+        </main>
+      </Suspense>
     </HydrationBoundary>
   );
 }
